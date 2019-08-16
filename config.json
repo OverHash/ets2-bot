@@ -1,0 +1,34 @@
+{
+  "prefix": "$",
+  "owners": [ "221743639108386816", "236023702515351552", "398334906616381461" ],
+  "isTesting": false,
+  "version": "0.2.2",
+  "versionTimestamp": 1565172516039,
+  "welcomeChannels": [
+    "general",
+    "bot-commands",
+    "bot_chat",
+    "bots",
+    "cmds",
+    "bot",
+    "welcome",
+    "help",
+    "other",
+    "commands"
+  ],
+  "variants": [
+    "Vehicle Name",
+    "Cabin",
+    "Chassis",
+    "Engine",
+    "Transmission",
+    "Interior"
+  ],
+  "trucksATS": [
+    "Peterbilt",
+    "Peterbilt",
+    "Kenworth T",
+    "Kenworth W",
+    "Volvo VNL"
+  ]
+}

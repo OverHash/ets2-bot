@@ -1,0 +1,4 @@
+{
+    "days": [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" ],
+    "months": [ "Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec" ]
+}

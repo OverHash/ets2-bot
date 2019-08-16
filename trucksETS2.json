@@ -1,0 +1,83 @@
+{
+	"trucksETS2": [
+		["DAF XF105",
+			[ "Space", "Space Cab Plus", "Super Space" ],
+			[ "Chassis 4x2", "Chassis 4x2 Extra Tank", "Chassis 6x2", "Chassis 6x2/4", "Chassis 6x2 Taglift", "Chassis 6x2/4 Midlift", "Chassis 6x4" ],
+			[ "PACCAR MX265", "PACCAR MX300", "PACCAR MX340", "PACCAR MX375" ],
+			[ "ZF 12AS2330TD", "ZF 12TX2420TD", "ZF 12AS2530TO", "ZF 12TX2610TO", "Allison 4500", "ZF 16AS2630TO", "ZF 16TX2640TO", "ZF 12AS2331TD R", "ZF 12TX2421TD R", "ZF 12AS2531TO R", "ZF 12TX2611TO R", "Allison 4500 R", "ZF 16AS2631TO R", "ZF 16TX2641TO R" ],
+			[ "Standard", "Standard UK", "Exclusive", "Exclusive UK" ]
+		],
+
+		["DAF XF",
+			[ "Active Space", "Active Super", "Active Super Space" ],
+			[ "Chassis 4x2", "Chassis 6x2", "Chassis 6x2/4", "Chassis 6x2 Taglift", "Chassis 6x2/4 Midlift", "Chassis 6x4" ],
+			[ "MX-11 Euro 6, 2017", "MX-13 303 Euro 6", "MX-11 320 Euro 6", "MX-11 330 Euro 6, 2017", "MX-13 340 Euro 6", "MX-13 355 Euro 6, 2017", "MX-13 375 Euro 6", "MX-13 390 Euro 6, 2017" ],
+			[ "ZF 12AS2330TD", "ZF 12TX2420TD", "ZF 12AS2530TO", "ZF12TX2610TO", "Allison 4500", "ZF 16AS2630TO", "ZF 16TX2640TO", "ZF 12AS2331TD R", "ZF 12TX2421TD R", "ZF 12AS2531TO R", "ZF 12TX2611TO R" ],
+			[ "Standard Line", "Standard Line UK", "Standard", "Standard UK", "Exclusive Line", "Exclusive Line UK", "Exclusive", "Exclusive UK"]
+		],
+
+		["Iveco Stralis",
+			[ "Active Space", "Active Super", "Active Super Space" ],
+			[ "Chassis 4x2", "Chassis 6x2", "Chassis 6x2/4", "Chassis 6x2 Taglift", "Chassis 6x2/4 Midlift", "Chassis 6x4" ],
+			[ "Cursor 8 310", "Cursor 8 330", "Cursor 8 360", "Cursor 10 420", "Cursor 10 450", "Cursor 13 500", "Cursor 13 560" ],
+			[ "ZF 12AS2330TD", "ZF 12AS2530TO", "Allison 4500", "ZF 16AS2630TO", "ZF 12AS2331TD R", "ZF 12AS2531TO R", "Allison 4500 R", "ZF 16AS2631TO R" ],
+			[ "Standard", "Standard UK", "Exclusive", "Exclusive UK" ]
+		],
+
+		["Iveco Stralis Hi-Way",
+			[ "Hi-Way" ],
+			[ ],
+			[ ],
+			[ ],
+			[ ] 
+		],
+
+		["MAN TGX",
+			[ "XL", "XLX", "XXL" ]
+		],
+		
+		["MAN TGX Euro 6",
+			[ "XL", "XLX", "XXL" ]
+		],
+
+		["Mercedes-Benz Actros",
+			[ "Low Roof Sleeper", "High Roof Sleeper", "MegaSpace" ]
+		],
+
+		["Mercedes-Benz New Actros",
+			[ "StreamSpace", "BigSpace", "GigaSpace" ]
+		],
+
+		["Renault Magnum",
+			[ "Excellence" ]
+		],
+
+		["Renault Premium",
+			[ "Normal Roof", "High Roof" ]
+		],
+
+		["Scania R 2009",
+			[ "Normal", "Highline", "Topline" ]
+		],
+
+		["Scania R",
+			[ "Normal Roof", "High Roof" ]
+		],
+
+		["Scania S",
+			[ "Normal Roof", "High Roof" ]
+		],
+
+		["Scania Streamline",
+			[ "Normal", "Highline", "Topline" ]
+		],
+
+		["Volvo FH16 2009",
+			[ "Sleeper", "Globetrotter", "Globetrotter XL" ]
+		],
+
+		["Volvo FH 2012",
+			[ "Sleeper", "Globetrotter", "Globetrotter XL" ]
+		]
+	]
+}
