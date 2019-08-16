@@ -4,12 +4,17 @@
   "description": "a bot that will work with ETS2 and ATS",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "OverHash#6449",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/OverHash/ets2-bot"
+  },
+  "engines": {
+    "node": "10.16.1"
+  },
   "dependencies": {
     "discord.js": "^11.5.1",
     "eslint": "^6.1.0",
