@@ -23,12 +23,5 @@
     "Engine",
     "Transmission",
     "Interior"
-  ],
-  "trucksATS": [
-    "Peterbilt",
-    "Peterbilt",
-    "Kenworth T",
-    "Kenworth W",
-    "Volvo VNL"
   ]
 }

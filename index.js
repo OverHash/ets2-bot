@@ -19,7 +19,7 @@ client.once('ready', () => {
 			for (const k in welcomeChannels) {
 				const channel = welcomeChannels[k];
 				if (guild.channels.find('name', channel)) {
-					guild.channels.find('name', channel).send(`Bot is now online! The prefix for this server is **${prefix}**`);
+					//guild.channels.find('name', channel).send(`Bot is now online! The prefix for this server is **${prefix}**`);
 					break;
 				}
 			}
@@ -90,5 +90,5 @@ client.on('message', message => {
 	}
 });
 
-console.log('LOGGING IN WITH TOKEN ' + token);
+console.log('LOGGING IN WITH TOKEN ' + process.env.BOT_TOKEN);
 client.login(process.env.BOT_TOKEN);
