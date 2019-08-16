@@ -1,10 +1,6 @@
 const Discord = require('discord.js');
 const getUserAvatar = require('../functions/getUserAvatar.js');
 
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 module.exports = {
 	name: 'avatar',
 	aliases: [ 'icon', 'pfp', 'av' ],

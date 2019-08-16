@@ -11,11 +11,11 @@ module.exports = {
 
 		if (!args.length) {
 			if (message.guild) {
-				data.push(`The prefix for ${message.guild.name} is ${prefix}`);
+				data.push(`The prefix for ${message.guild.name} is ${process.env.PREFIX || prefix}`);
 			}
 			data.push('Here\'s a list of all my commands:');
 			data.push(commands.map(command => command.readableName ? command.readableName : command.name).join('\n'));
-			data.push(`\nYou can use \`${prefix}help [command name]\` to get info on a specific command!`);
+			data.push(`\nYou can use \`${process.env.PREFIX || prefix}help [command name]\` to get info on a specific command!`);
 
 			return message.author.send(data, { split: true })
 				.then(() => {
@@ -39,8 +39,8 @@ module.exports = {
 
 		if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
 		if (command.description) data.push(`**Description:** ${command.description}`);
-		if (command.arguments) data.push(`**Arguments:** ${prefix}${command.name} ${command.arguments}`);
-		if (command.example) data.push(`**Usage:** ${prefix}${command.name} ${command.example}`);
+		if (command.arguments) data.push(`**Arguments:** ${process.env.PREFIX || prefix}${command.name} ${command.arguments}`);
+		if (command.example) data.push(`**Usage:** ${process.env.PREFIX || prefix}${command.name} ${command.example}`);
 
 		message.channel.send(data, { split: true });
 	},

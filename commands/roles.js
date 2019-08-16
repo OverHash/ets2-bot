@@ -1,15 +1,20 @@
+const Discord = require('discord.js');
+
 module.exports = {
 	name: 'roles',
 	description: 'Gets a list of server roles and amount of members for each',
 	example: '',
 	execute(message, args) {
 		const roles = message.guild.roles.sort((a, b) => b.calculatedPosition - a.calculatedPosition);
-		let result = '```\n';
-		roles.map(role => {
-			result += role.name + '			' + role.members.size + ' members\n';
-		});
+		const embed = new Discord.RichEmbed()
+			.setTitle(`Roles in ${message.guild.name}`)
 
-		result += '```';
-		message.channel.send(result);
+			.addField('Role Name:', roles.map(role => role), true)
+			.addField('Member Count:', roles.map(role => role.members.size), true)
+
+			.setTimestamp()
+			.setColor('#00ff44');
+
+		message.channel.send(embed);
 	},
 };

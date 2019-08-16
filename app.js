@@ -33,7 +33,7 @@ client.on('guildCreate', guild => {
 	for (const k in welcomeChannels) {
 		const channel = welcomeChannels[k];
 		if (guild.channels.find('name', channel)) {
-			guild.channels.find('name', channel).send(`Hello 👋! The prefix for this bot is ${prefix}.\nYou can get a list of commands by doing ${prefix}help`);
+			guild.channels.find('name', channel).send(`Hello 👋! The prefix for this bot is ${process.env.PREFIX || prefix}.\nYou can get a list of commands by doing ${process.env.PREFIX || prefix}help`);
 			break;
 		}
 	}
@@ -48,15 +48,15 @@ client.on('message', message => {
 	if (message.mentions.users.size && message.mentions.users.first()) {
 		if (message.mentions.users.first().id == client.user.id) {
 			if (!(message.content.toLowerCase().indexOf('prefix') === -1)) {
-				message.channel.send(`The prefix for this server is **${prefix}**`);
+				message.channel.send(`The prefix for this server is **${process.env.PREFIX || prefix}**`);
 			}
 		}
 	}
 
 	// this was either a invalid command, or a bot was talking
-	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	if (!message.content.startsWith(process.env.PREFIX || prefix) || message.author.bot) return;
 
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice((process.env.PREFIX || prefix).length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
 
@@ -73,7 +73,7 @@ client.on('message', message => {
 			reply += `\nExample arguments can be: \`${command.arguments}\``;
 		}
 		if (command.example) {
-			reply += `\nAn example of correct usage is: \`${prefix}${command.example}\``;
+			reply += `\nAn example of correct usage is: \`${process.env.PREFIX || prefix}${command.example}\``;
 		}
 
 		return message.channel.send(reply);
@@ -90,5 +90,7 @@ client.on('message', message => {
 	}
 });
 
+// put the enviromental file into process.env
+require('dotenv').config();
 console.log('LOGGING IN WITH TOKEN ' + process.env.BOT_TOKEN);
 client.login(process.env.BOT_TOKEN);

@@ -28,7 +28,7 @@ module.exports = {
 		const members = message.guild.members;
 		const humanCount = message.guild.members.filter(member => !member.user.bot).size;
 		const botCount = message.guild.members.filter(member => member.user.bot).size;
-		const roles = message.guild.roles;
+		const roles = message.guild.roles.sort((a, b) => b.calculatedPosition - a.calculatedPosition);
 		let onlineCount = 0;
 
 		members.forEach(member => {
