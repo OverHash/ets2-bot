@@ -18,7 +18,7 @@ client.once('ready', () => {
 		client.guilds.forEach(guild => {
 			for (const k in welcomeChannels) {
 				const channel = welcomeChannels[k];
-				if (guild.channels.find('name', channel)) {
+				if (guild.channels.find(guildChannel => guildChannel.name == channel)) {
 					// guild.channels.find('name', channel).send(`Bot is now online! The prefix for this server is **${prefix}**`);
 					break;
 				}
