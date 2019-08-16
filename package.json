@@ -2,9 +2,9 @@
   "name": "trucking-discord-bot",
   "version": "1.0.0",
   "description": "a bot that will work with ETS2 and ATS",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app.js"
   },
   "author": "OverHash#6449",
   "license": "ISC",
