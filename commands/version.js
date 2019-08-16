@@ -10,11 +10,10 @@ module.exports = {
 	execute(message, args) {
 		const now = new Date;
 		const utc_timestamp = now.getTime() + (now.getTimezoneOffset() * 60 * 1000);
-		console.log(utc_timestamp + '\n' + utc_timestamp - (utc_timestamp - versionTimestamp));
 
 		const bootTime = new Date(utc_timestamp - (utc_timestamp - versionTimestamp));
 
-		const day = dates.day[bootTime.getDay()];
+		const day = dates.days[bootTime.getDay()];
 		const month = dates.months[bootTime.getMonth()];
 		const date = bootTime.getDate();
 		const year = bootTime.getFullYear();
