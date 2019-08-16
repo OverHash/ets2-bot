@@ -90,5 +90,5 @@ client.on('message', message => {
 	}
 });
 
-console.log('LOGGING IN WITH TOKEN ' + token);
+console.log('LOGGING IN WITH TOKEN ' + process.env.BOT_TOKEN);
 client.login(process.env.BOT_TOKEN);
