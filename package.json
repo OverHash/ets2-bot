@@ -19,6 +19,10 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.0.0",
     "eslint": "^6.1.0",
-    "quick.db": "^7.0.0-b22"
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "opusscript": "0.0.7",
+    "quick.db": "^7.0.0-b22",
+    "ytdl-core": "^0.29.5"
   }
 }
