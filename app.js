@@ -1,4 +1,5 @@
 const fs = require('fs');
+const quickDb = require('quick.db');
 const Discord = require('discord.js');
 const { prefix, welcomeChannels, isTesting } = require('./config.json');
 
@@ -29,11 +30,12 @@ client.once('ready', () => {
 
 client.on('guildCreate', guild => {
 	console.log(`Joined the server ${guild.name}`);
+	const guildPrefix = quickDb.fetch('guildPrefix_' + guild.id);
 
 	for (const k in welcomeChannels) {
 		const channel = welcomeChannels[k];
 		if (guild.channels.find('name', channel)) {
-			guild.channels.find('name', channel).send(`Hello 👋! The prefix for this bot is ${process.env.PREFIX || prefix}.\nYou can get a list of commands by doing ${process.env.PREFIX || prefix}help`);
+			guild.channels.find('name', channel).send(`Hello 👋! The prefix for this bot is ${guildPrefix || process.env.PREFIX || prefix}.\nYou can get a list of commands by doing ${guildPrefix || process.env.PREFIX || prefix}help`);
 			break;
 		}
 	}
@@ -44,19 +46,20 @@ client.on('guildDelete', guild => {
 });
 
 client.on('message', message => {
+	const guildPrefix = quickDb.fetch('guildPrefix_' + message.guild.id);
 	// handle getting the prefix if the bot needs to reply with it
 	if (message.mentions.users.size && message.mentions.users.first()) {
 		if (message.mentions.users.first().id == client.user.id) {
 			if (!(message.content.toLowerCase().indexOf('prefix') === -1)) {
-				message.channel.send(`The prefix for this server is **${process.env.PREFIX || prefix}**`);
+				message.channel.send(`The prefix for this server is **${guildPrefix || process.env.PREFIX || prefix}**`);
 			}
 		}
 	}
 
 	// this was either a invalid command, or a bot was talking
-	if (!message.content.startsWith(process.env.PREFIX || prefix) || message.author.bot) return;
+	if (!message.content.startsWith(guildPrefix || process.env.PREFIX || prefix) || message.author.bot) return;
 
-	const args = message.content.slice((process.env.PREFIX || prefix).length).split(/ +/);
+	const args = message.content.slice((guildPrefix || process.env.PREFIX || prefix).length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
 
@@ -73,7 +76,7 @@ client.on('message', message => {
 			reply += `\nExample arguments can be: \`${command.arguments}\``;
 		}
 		if (command.example) {
-			reply += `\nAn example of correct usage is: \`${process.env.PREFIX || prefix}${command.example}\``;
+			reply += `\nAn example of correct usage is: \`${guildPrefix || process.env.PREFIX || prefix}${command.example}\``;
 		}
 
 		return message.channel.send(reply);

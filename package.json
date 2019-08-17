@@ -23,6 +23,7 @@
     "ffmpeg-binaries": "^4.0.0",
     "opusscript": "0.0.7",
     "quick.db": "^7.0.0-b22",
+    "request": "^2.88.0",
     "ytdl-core": "^0.29.5"
   }
 }
