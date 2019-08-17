@@ -1,18 +1,13 @@
-const isGuildOwner = require('../functions/isGuildOwner.js');
-
 module.exports = {
 	name: 'leave',
-	description: 'Makes the bot leave the server',
+	description: 'Makes the bot leave the voice channel',
 	example: '',
-	permissionRequired: 'server owner',
+	permissionRequired: 'all',
 	guildOnly: true,
 	execute(message, args) {
-		isGuildOwner(message)
-			.then(() => {
-				message.channel.send('Leaving server...');
-				message.guild.leave();
-			}, function() {
-				message.channel.send('Sorry! This action can only be completed by a server owner');
-			});
-	}
-}
+		if (message.guild.voiceConnection) {
+			message.guild.voiceConnection.disconnect();
+			global.musicQueues[message.guild.id] = null;
+		}
+	},
+};
