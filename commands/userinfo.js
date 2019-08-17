@@ -5,6 +5,7 @@ module.exports = {
 	description: 'Gets information about a user',
 	arguments: '[@person(s)]',
 	example: 'userinfo @OverHash @OtherPerson',
+	aliases: [ 'whois' ],
 	permissionRequired: 'all',
 	guildOnly: true,
 	execute(message, args) {
