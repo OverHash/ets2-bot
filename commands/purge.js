@@ -22,16 +22,23 @@ module.exports = {
 		}
 
 		/* Purge messages */
+
 		let amountToPurge = 1;
+		let channelToPurge = message.channel;
+		
+		if (message.mentions.channels.first()) {
+			/* Users wants to purge a specific channel */
+			channelToPurge = message.mentions.channels.first();
+		}
 		if ((args && args[0] && !isNaN(args[0]))) {
 			amountToPurge = args[0];
 		}
 
-		message.channel.fetchMessages({
+		channelToPurge.fetchMessages({
 			limit: amountToPurge,
 		})
 			.then(messages => {
-				message.channel.bulkDelete(messages);
+				channelToPurge.bulkDelete(messages);
 				message.channel.send('Purged ' + amountToPurge + ' messages!')
 					.then(msg => {
 						msg.delete(2000);
