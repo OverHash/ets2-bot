@@ -62,19 +62,19 @@ module.exports = {
 				.catch(err => {
 					message.channel.send('I failed to bulk purge messages');
 				});
-		}
-
-		channelToPurge.fetchMessages({
-			limit: amountToPurge,
-		})
-			.then(messages => {
-				channelToPurge.bulkDelete(messages);
-				message.channel.send('Purged ' + amountToPurge + ' messages!')
-					.then(msg => msg.delete(2500));
+		} else {
+			channelToPurge.fetchMessages({
+				limit: amountToPurge,
 			})
-			.catch(err => {
-				console.log('Failed to bulk delete with error:\n' + err);
-				message.channel.send('I failed to purge messages!');
-			});
+				.then(messages => {
+					channelToPurge.bulkDelete(messages);
+					message.channel.send('Purged ' + amountToPurge + ' messages!')
+						.then(msg => msg.delete(2500));
+				})
+				.catch(err => {
+					console.log('Failed to bulk delete with error:\n' + err);
+					message.channel.send('I failed to purge messages!');
+				});
+		}
 	},
 };
