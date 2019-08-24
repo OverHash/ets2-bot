@@ -25,13 +25,43 @@ module.exports = {
 
 		let amountToPurge = 1;
 		let channelToPurge = message.channel;
-		
+		let userToPurge = null;
+
 		if (message.mentions.channels.first()) {
 			/* Users wants to purge a specific channel */
 			channelToPurge = message.mentions.channels.first();
 		}
-		if ((args && args[0] && !isNaN(args[0]))) {
-			amountToPurge = args[0];
+
+		/* Get amount of messages to purge */
+		if (!args.length) {
+			/* User didn't specify how many messages to delete */
+			return message.channel.send('Please specify how many messages to delete!');
+		}
+		for (let k = 0; k++; k < args.length) {
+			const arg = args[k];
+
+			if (!isNaN(arg)) {
+				amountToPurge = arg + 1;
+				break;
+			}
+		}
+		/* Check if we are purging a specific user's messages */
+		if (message.mentions.users.first()) {
+			userToPurge = message.mentions.users.first();
+		}
+
+		if (userToPurge) {
+			channelToPurge.fetchMessages()
+				.then(messages => {
+					messages = messages.filter(msg => msg.author.id === userToPurge.id);
+
+					channelToPurge.bulkDelete(messages);
+					message.channel.send('Purged ' + amountToPurge + ' messages!')
+						.then(msg => msg.delete(2500));
+				})
+				.catch(err => {
+					message.channel.send('I failed to bulk purge messages');
+				});
 		}
 
 		channelToPurge.fetchMessages({
@@ -40,9 +70,7 @@ module.exports = {
 			.then(messages => {
 				channelToPurge.bulkDelete(messages);
 				message.channel.send('Purged ' + amountToPurge + ' messages!')
-					.then(msg => {
-						msg.delete(2000);
-					});
+					.then(msg => msg.delete(2500));
 			})
 			.catch(err => {
 				console.log('Failed to bulk delete with error:\n' + err);
